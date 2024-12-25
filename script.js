@@ -1,27 +1,33 @@
+// Simple version to test functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-button');
-    const videoContainers = document.querySelectorAll('.video-container');
+    // Get all buttons and videos
+    const buttons = document.querySelectorAll('.filter-button');
+    const videos = document.querySelectorAll('.video-container');
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
+    // Add click handlers to each button
+    buttons.forEach(function(button) {
+        button.onclick = function() {
+            // Get the filter value from the clicked button
+            const filter = this.getAttribute('data-filter');
+            
             // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
             // Add active class to clicked button
-            button.classList.add('active');
+            this.classList.add('active');
 
-            const filterValue = button.getAttribute('data-filter');
-
-            videoContainers.forEach(container => {
-                if (filterValue === 'all') {
-                    container.classList.remove('hidden');
+            // Filter the videos
+            videos.forEach(function(video) {
+                if (filter === 'all') {
+                    video.style.display = 'block';
                 } else {
-                    if (container.getAttribute('data-category') === filterValue) {
-                        container.classList.remove('hidden');
+                    if (video.getAttribute('data-category') === filter) {
+                        video.style.display = 'block';
                     } else {
-                        container.classList.add('hidden');
+                        video.style.display = 'none';
                     }
                 }
             });
-        });
+        };
     });
 }); 
