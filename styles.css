@@ -65,8 +65,8 @@ nav ul {
 }
 
 .filter-button.active {
-  background-color: #fcc600 !important;
-  color: #000000 !important;
+  background-color: #fcc600;
+  color: #000000;
 }
 
 .video-row {
@@ -82,6 +82,7 @@ nav ul {
   min-width: 300px;
   max-width: 400px;
   margin-bottom: 20px;
+  display: block;
 }
 
 .video-container.hidden {

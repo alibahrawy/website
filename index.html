@@ -33,10 +33,10 @@
   </button>
 
   <div class="filter-container">
-    <button class="filter-button active" data-filter="all">All</button>
-    <button class="filter-button" data-filter="horror">Horror</button>
-    <button class="filter-button" data-filter="talking-head">Talking Head</button>
-    <button class="filter-button" data-filter="commercial">Commercial</button>
+    <button class="filter-button active" onclick="filterVideos('all')">All</button>
+    <button class="filter-button" onclick="filterVideos('horror')">Horror</button>
+    <button class="filter-button" onclick="filterVideos('talking-head')">Talking Head</button>
+    <button class="filter-button" onclick="filterVideos('commercial')">Commercial</button>
   </div>
 
   <div class="video-row">
@@ -93,6 +93,23 @@
       <iframe width="100%" height="315" src="https://www.youtube.com/embed/gARY0kiMbcA?si=iKxk0bnYn2_IObv7" frameborder="0" allowfullscreen></iframe>
       <h2>Finance video</h2>
       <p>Work</p>
+    </div>
+  </div>
+
+  <div class="video-row">
+    <div class="video-container" data-category="horror">
+        <h2>Test Horror Video</h2>
+        <p>This is a test horror video container</p>
+    </div>
+    
+    <div class="video-container" data-category="talking-head">
+        <h2>Test Talking Head Video</h2>
+        <p>This is a test talking head video container</p>
+    </div>
+    
+    <div class="video-container" data-category="commercial">
+        <h2>Test Commercial Video</h2>
+        <p>This is a test commercial video container</p>
     </div>
   </div>
 
