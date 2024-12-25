@@ -85,3 +85,29 @@ iframe {
     max-width: 93.5%;
   }
 }
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-button {
+  background-color: #ffffff;
+  color: #fcc600;
+  border: 1px solid #fcc600;
+  border-radius: 4px;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-family: 'Contrail One', cursive;
+}
+
+.filter-button.active {
+  background-color: #fcc600;
+  color: #ffffff;
+}
+
+.video-container.hidden {
+  display: none;
+}
