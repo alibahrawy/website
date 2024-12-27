@@ -7,8 +7,17 @@ body {
 }
 
 header {
-  background-color: #000000;
-  border-bottom: 1px solid #fcc600;
+  padding: 20px 0;
+  border-bottom: 2px solid #333;
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
 }
 
 h1 {
@@ -24,10 +33,10 @@ nav {
 
 nav ul {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   gap: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 nav ul li {
@@ -35,17 +44,19 @@ nav ul li {
 }
 
 .button {
-  text-decoration: none;
+  background-color: #000000;
   color: #fcc600;
-  padding: 8px 16px;
   border: 1px solid #fcc600;
   border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: 'Contrail One', cursive;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .button:hover {
-  background-color: #fcc600;
-  color: #000000;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .filter-container {
@@ -87,10 +98,10 @@ nav ul li {
 }
 
 .video-container {
-  flex: 0 0 calc(33.333% - 20px);
+  flex: 0 0 calc(33.333% - 14px);
+  margin: 0;
   min-width: 300px;
   max-width: none;
-  margin-bottom: 20px;
   border: 2px solid #fcc600;
   padding: 15px;
   border-radius: 8px;
@@ -124,7 +135,7 @@ nav ul li {
 
 @media (max-width: 1200px) {
   .video-container {
-    flex: 0 0 calc(50% - 20px);
+    flex: 0 0 calc(50% - 10px);
   }
 }
 
@@ -144,4 +155,11 @@ nav ul li {
   nav ul {
     justify-content: center;
   }
+}
+
+.videos-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start;
 }
