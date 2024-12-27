@@ -62,6 +62,25 @@ function reorganizeVideos() {
     }
 }
 
+function filterSelection(category) {
+    var videoItems = document.getElementsByClassName("video-item");
+    if (category == "all") {
+        for (var i = 0; i < videoItems.length; i++) {
+            videoItems[i].style.display = "block";
+        }
+        return;
+    }
+    
+    for (var i = 0; i < videoItems.length; i++) {
+        var categories = videoItems[i].getAttribute("data-category").split(" ");
+        if (categories.includes(category)) {
+            videoItems[i].style.display = "block";
+        } else {
+            videoItems[i].style.display = "none";
+        }
+    }
+}
+
 // Initial load - show all videos
 window.onload = function() {
     console.log('Page loaded - initializing filters');
