@@ -1,6 +1,6 @@
-function filterVideos(filter) {
+function filterVideos(category) {
     // Debug log
-    console.log('Filtering for: ' + filter);
+    console.log('Filtering for: ' + category);
 
     // Get all buttons and videos
     const buttons = document.querySelectorAll('.filter-button');
@@ -8,8 +8,8 @@ function filterVideos(filter) {
     
     // Update active button
     buttons.forEach(button => {
-        if (button.innerText.toLowerCase() === filter.toLowerCase() || 
-           (button.innerText === 'All' && filter === 'all')) {
+        if (button.innerText.toLowerCase() === category.toLowerCase() || 
+           (button.innerText === 'All' && category === 'all')) {
             button.classList.add('active');
         } else {
             button.classList.remove('active');
@@ -21,17 +21,12 @@ function filterVideos(filter) {
 
     // Show/hide videos
     videos.forEach(video => {
-        const category = video.getAttribute('data-category');
-        if (filter === 'all') {
+        const categories = video.dataset.category.split(' ');
+        if (category === 'all' || categories.includes(category)) {
             video.style.display = 'block';
             visibleCount++;
         } else {
-            if (category === filter) {
-                video.style.display = 'block';
-                visibleCount++;
-            } else {
-                video.style.display = 'none';
-            }
+            video.style.display = 'none';
         }
     });
 
