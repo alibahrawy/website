@@ -35,6 +35,7 @@
     <button class="filter-button" onclick="filterVideos('horror')">Horror</button>
     <button class="filter-button" onclick="filterVideos('talking-head')">Talking Head</button>
     <button class="filter-button" onclick="filterVideos('commercial')">Commercial</button>
+    <button class="filter-button" data-filter="video-essays">Video Essays</button>
   </div>
 
   <div class="video-row">
@@ -132,6 +133,24 @@
         <h2>Alien Tag | Official Teaser 2</h2>
         <p>Horror Game Trailer</p>
     </div>
+  </div>
+
+  <div class="video-item" data-category="video-essays">
+    <iframe src="your-video-url" frameborder="0" allowfullscreen></iframe>
+    <h3>Your Video Essay Title</h3>
+    <p>Video description...</p>
+  </div>
+
+  <div class="video-item" data-category="horror video-essays">
+    <iframe src="your-horror-essay-video-url" frameborder="0" allowfullscreen></iframe>
+    <h3>Horror Video Essay Title</h3>
+    <p>Description...</p>
+  </div>
+
+  <div class="video-item" data-category="talking-head commercial">
+    <iframe src="your-commercial-video-url" frameborder="0" allowfullscreen></iframe>
+    <h3>Commercial Talking Head Title</h3>
+    <p>Description...</p>
   </div>
 
   <script src="script.js"></script>
