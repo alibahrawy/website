@@ -1,88 +1,63 @@
-function filterVideos(category) {
-    // Debug log
-    console.log('Filtering for: ' + category);
+// Store all videos in their original order
+let originalVideos = [];
 
-    // Get all buttons and videos
-    const buttons = document.querySelectorAll('.filter-button');
-    const videos = document.querySelectorAll('.video-container');
+document.addEventListener('DOMContentLoaded', () => {
+    // Store original video order on load
+    originalVideos = Array.from(document.querySelectorAll('.video-container'));
     
-    // Update active button
-    buttons.forEach(button => {
-        if (button.innerText.toLowerCase() === category.toLowerCase() || 
-           (button.innerText === 'All' && category === 'all')) {
-            button.classList.add('active');
-        } else {
-            button.classList.remove('active');
-        }
+    // Add click handlers to filter buttons
+    document.querySelectorAll('.filter-button').forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.dataset.filter;
+            filterVideos(category);
+            
+            // Update active button state
+            document.querySelectorAll('.filter-button').forEach(btn => {
+                btn.classList.toggle('active', btn === button);
+            });
+        });
     });
 
-    // Count visible videos for debugging
-    let visibleCount = 0;
-
-    // Show/hide videos
-    videos.forEach(video => {
-        const categories = video.dataset.category.split(' ');
-        if (category === 'all' || categories.includes(category)) {
-            video.style.display = 'block';
-            visibleCount++;
-        } else {
-            video.style.display = 'none';
-        }
-    });
-
-    // Debug log
-    console.log('Visible videos: ' + visibleCount);
-
-    // Reorganize videos into rows
-    reorganizeVideos();
-}
-
-function reorganizeVideos() {
-    // Get all video rows
-    const rows = document.querySelectorAll('.video-row');
-    
-    // Get all visible videos
-    const visibleVideos = Array.from(document.querySelectorAll('.video-container')).filter(
-        video => video.style.display !== 'none'
-    );
-
-    // Move all visible videos to the first row
-    if (rows.length > 0) {
-        const firstRow = rows[0];
-        visibleVideos.forEach(video => {
-            firstRow.appendChild(video);
-        });
-
-        // Hide empty rows
-        rows.forEach((row, index) => {
-            if (index > 0) {
-                row.style.display = 'none';
-            }
-        });
-    }
-}
-
-function filterSelection(category) {
-    var videoItems = document.getElementsByClassName("video-item");
-    if (category == "all") {
-        for (var i = 0; i < videoItems.length; i++) {
-            videoItems[i].style.display = "block";
-        }
-        return;
-    }
-    
-    for (var i = 0; i < videoItems.length; i++) {
-        var categories = videoItems[i].getAttribute("data-category").split(" ");
-        if (categories.includes(category)) {
-            videoItems[i].style.display = "block";
-        } else {
-            videoItems[i].style.display = "none";
-        }
-    }
-}
-
-// Initial load - show all videos
-window.onload = function() {
-    console.log('Page loaded - initializing filters');
+    // Initial filter
     filterVideos('all');
-}; 
+});
+
+function filterVideos(category) {
+    const firstRow = document.querySelector('.video-row');
+    if (!firstRow) return;
+
+    // Clear the first row
+    firstRow.innerHTML = '';
+    
+    // Filter and append videos
+    originalVideos.forEach(video => {
+        const clone = video.cloneNode(true);
+        const categories = video.dataset.category.split(' ');
+        
+        if (category === 'all' || categories.includes(category)) {
+            firstRow.appendChild(clone);
+        }
+    });
+
+    // Hide other rows
+    document.querySelectorAll('.video-row').forEach((row, index) => {
+        if (index > 0) {
+            row.style.display = 'none';
+        }
+    });
+
+    // Reinitialize lite-youtube elements
+    initializeLiteYouTube();
+}
+
+function initializeLiteYouTube() {
+    document.querySelectorAll('lite-youtube').forEach(element => {
+        // Remove any existing initialized attribute
+        element.removeAttribute('initialized');
+        
+        // Force re-initialization
+        if (customElements.get('lite-youtube')) {
+            customElements.upgrade(element);
+        }
+    });
+}
