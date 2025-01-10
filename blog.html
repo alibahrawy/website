@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog - Ali Bahrawy</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+    
+        .blog-list {
+            list-style: none;
+            padding: 0;
+        }
+    
+        .blog-item {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 2px solid #fcc600;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease;
+        }
+    
+        .blog-item:hover {
+            transform: translateX(10px);
+        }
+    
+        .blog-item a {
+            display: block;
+            padding: 20px;
+            color: #fcc600;
+            text-decoration: none;
+        }
+    
+        .blog-item h2 {
+            margin: 0;
+            color: #fcc600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Ali Bahrawy</h1>
+            <nav>
+                <ul>
+                    <li><a href="/" class="button">Home</a></li>
+                    <li><a href="/about.html" class="button">About</a></li>
+                    <li><a href="/blog.html" class="button">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="blog-container">
+        <h2 style="color: #fcc600; margin-bottom: 30px;">Latest Posts</h2>
+        <ul class="blog-list" id="blogList">
+            <!-- Blog posts will be dynamically inserted here -->
+        </ul>
+    </div>
+
+    <script src="blog.js"></script>
+</body>
+</html> 

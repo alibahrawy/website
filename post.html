@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Post - Ali Bahrawy</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Contrail+One&display=swap"
+        rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        /* Reset default margins and make full height */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+    
+        /* Header styles */
+        header {
+            flex-shrink: 0;
+        }
+    
+        /* Main content container */
+        .post-content table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 1.5em 0;
+        color: #ffffff;
+        font-size: 0.9em;
+        border-radius: 8px;
+        overflow: hidden; /* This ensures the rounded corners are visible */
+    }
+
+    .post-content th,
+    .post-content td {
+        border: 1px solid rgba(252, 198, 0, 0.3);
+        padding: 12px 16px;
+        text-align: left;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .post-content th {
+        background-color: rgba(0, 0, 0, 0.6); /* Darker header background */
+        color: #ffffff; /* White text instead of yellow */
+        font-weight: normal;
+        border-bottom: 2px solid #fcc600;
+    }
+
+    .post-content tr:nth-child(even) td {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .post-content tr:hover td {
+        background-color: rgba(252, 198, 0, 0.05);
+        transition: background-color 0.2s ease;
+    }
+
+    /* First and last cells in first row (headers) */
+    .post-content th:first-child {
+        border-top-left-radius: 8px;
+    }
+    
+    .post-content th:last-child {
+        border-top-right-radius: 8px;
+    }
+
+    /* First and last cells in last row */
+    .post-content tr:last-child td:first-child {
+        border-bottom-left-radius: 8px;
+    }
+    
+    .post-content tr:last-child td:last-child {
+        border-bottom-right-radius: 8px;
+    }
+
+    /* Make tables scrollable horizontally on small screens */
+    .post-content table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    @media (min-width: 1200px) {
+        .post-content table {
+            display: table;
+            white-space: normal;
+        }
+    }
+    
+        /* Rest of the styles remain the same */
+        .post-content h1 {
+            color: #fcc600;
+            font-size: 2.5em;
+            margin-bottom: 0.8em;
+        }
+    
+        .post-content h2 {
+            color: #fcc600;
+            font-size: 1.8em;
+            margin-top: 1.2em;
+            margin-bottom: 0.6em;
+        }
+    
+        .post-content h3 {
+            color: #fcc600;
+            font-size: 1.4em;
+            margin-top: 1em;
+        }
+    
+        .post-content p {
+            margin-bottom: 1em;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+    
+        .post-content img {
+            max-width: 100%;
+            height: auto;
+        }
+    
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .post-container {
+                padding: 5px;
+            }
+    
+            .post-content {
+                padding: 15px;
+            }
+        }
+    
+        /* For very wide screens */
+        @media (min-width: 1600px) {
+            .post-content {
+                max-width: 1800px; /* Increased max-width */
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Ali Bahrawy</h1>
+            <nav>
+                <ul>
+                    <li><a href="/" class="button">Home</a></li>
+                    <li><a href="/about.html" class="button">About</a></li>
+                    <li><a href="/blog.html" class="button">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="post-container">
+        <div class="post-content" id="postContent">
+            <!-- Post content will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script src="post.js"></script>
+</body>
+</html> 
